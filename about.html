@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Tienbank JSS</title>
+    <link rel="stylesheet" href="about.css"> 
+</head>
+<body>
+    <div class="page-header">
+        <h1>About Tienbank Junior Secondary School</h1>
+        <p>Quality Education Since 1992</p>
+    </div>
+
+    <main class="main-content">
+        <section class="about-intro">
+            <div class="about-image">
+                <img src="school-building.jpg" alt="School Building">
+            </div>
+            <div>
+                <h2 class="section-title">Welcome to Tienbank JSS</h2>
+                <p>Established in 1992, Tienbank Junior Secondary School has been a cornerstone of educational excellence in Sterkspruit. We provide quality education to students from Grade R through Grade 9, fostering academic achievement and personal growth.</p>
+                <p>Our dedicated staff and modern facilities create an environment where every student can thrive. We believe in holistic development, combining academic rigor with sports, arts, and community service.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="school-values">
+                <div class="value-card">
+                    <i class="fas fa-graduation-cap value-icon"></i>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistently maintaining a 98% pass rate through quality teaching and learning support</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users value-icon"></i>
+                    <h3>Community Focus</h3>
+                    <p>Deeply rooted in our local community with various outreach programs and partnerships</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-child value-icon"></i>
+                    <h3>Holistic Development</h3>
+                    <p>Balancing academics with sports, arts, and character building activities</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">27+</div>
+                    <p>Years of Service</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,200+</div>
+                    <p>Current Students</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <p>Pass Rate</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45</div>
+                    <p>Qualified Staff</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Academic Programs</h2>
+            <div class="academic-programs">
+                <div class="program-card">
+                    <h3>Foundation Phase</h3>
+                    <p>Grade R - Grade 3</p>
+                    <p>Focusing on literacy, numeracy, and life skills development</p>
+                </div>
+                <div class="program-card">
+                    <h3>Intermediate Phase</h3>
+                    <p>Grade 4 - Grade 6</p>
+                    <p>Expanding curriculum with science, technology, and creative arts</p>
+                </div>
+                <div class="program-card">
+                    <h3>Senior Phase</h3>
+                    <p>Grade 7 - Grade 9</p>
+                    <p>Preparing students for high school with advanced subjects</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="contact-box">
+            <h3>Want to Learn More?</h3>
+            <p>Schedule a school tour or request more information</p>
+            <button style="margin-top: 1rem; padding: 0.8rem 2rem; background: var(--gold); border: none; border-radius: 5px; color: var(--maroon); font-weight: bold;">
+                Contact Us
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.value-card, .program-card, .stats-grid').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
