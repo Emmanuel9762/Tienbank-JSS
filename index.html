@@ -7,22 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <img src="assets/logo.jpg" alt="Tienbank JSS Logo" class="logo">
-</header>
+    <header class="header">
+        <img src="assets/logo.jpg" alt="Tienbank JSS Logo" class="logo">
+    </header>
 
-<nav class="nav-container">
-    <div class="hamburger">☰</div>
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="#admissions">Admissions</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-    </ul>
-</nav>
+    <nav class="nav-container">
+        <div class="hamburger" onclick="toggleSidebar()">☰</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </nav>
 
-<div class="menu-overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleSidebar()">✖</div>
+        <ul>
+            <li><a href="#home" onclick="toggleSidebar()">Home</a></li>
+            <li><a href="about.html" onclick="toggleSidebar()">About</a></li>
+            <li><a href="#admissions" onclick="toggleSidebar()">Admissions</a></li>
+            <li><a href="#contact" onclick="toggleSidebar()">Contact</a></li>
+            <li><a href="#gallery" onclick="toggleSidebar()">Gallery</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
     <section class="hero">
         <div class="hero-content">
