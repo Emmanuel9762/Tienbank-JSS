@@ -83,3 +83,11 @@
     font-weight: 900;
     color: var(--gold);
   }
+
+  .date-box {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
