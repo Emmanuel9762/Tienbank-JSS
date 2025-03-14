@@ -1,0 +1,165 @@
+:root {
+    --maroon: #8B0000;
+    --gold: #F2A900;
+    --white: #FFFFFF;
+    --beige: #F5F5DC;
+    --dark-text: #333333;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  body {
+    line-height: 1.6;
+    color: var(--dark-text);
+    background: var(--beige);
+  }
+  /* Header styles similar to the admissions page */
+  .gallery-header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    background: linear-gradient(rgba(139, 0, 0, 0.9), rgba(139, 0, 0, 0.9)),
+                url('gallery-bg.jpg');
+    background-size: cover;
+    color: var(--white);
+  }
+  .gallery-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-header p {
+    font-size: 1.2rem;
+  }
+  /* Container for main content */
+  .gallery-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  /* Grid container for category sections */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .category-section {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--white);
+  }
+  .category-header {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+  .category-header:hover {
+    background: #790000;
+  }
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+  .category-icon {
+    font-size: 1.4rem;
+    color: var(--gold);
+    transition: transform 0.3s ease;
+  }
+  .image-count {
+    background: var(--gold);
+    color: var(--maroon);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--beige);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  .gallery-grid.active {
+    max-height: 2000px; /* Ensures the content is fully visible */
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+  /* Section title styling for extra section */
+  .section-title {
+    color: var(--maroon);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-align: center;
+  }
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--gold);
+  }
+  /* Campus virtual tour section */
+  .campus-tour {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+  .campus-tour iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 8px;
+  }
+  .campus-tour p {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .campus-tour iframe {
+      height: 250px;
+    }
+  }

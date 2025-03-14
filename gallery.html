@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Tienbank JSS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="gallery-header">
+    <h1>Our School Gallery</h1>
+    <p>Discover moments from our vibrant school life</p>
+  </header>
+
+  <div class="gallery-container">
+    <!-- Categories displayed in a grid -->
+    <div class="categories-grid">
+      <!-- Sports Category -->
+      <div class="category-section">
+        <div class="category-header" onclick="toggleCategory('sports')">
+          <div class="category-title">
+            <i class="fas fa-futbol category-icon"></i>
+            Sports & Athletics
+          </div>
+          <span class="image-count">8 Photos</span>
+        </div>
+        <div class="gallery-grid" id="sports-gallery">
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?sports1" alt="Sports activity">
+          </div>
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?sports2" alt="Sports activity">
+          </div>
+          <!-- Add additional images as needed -->
+        </div>
+      </div>
+
+      <!-- Choir Category -->
+      <div class="category-section">
+        <div class="category-header" onclick="toggleCategory('choir')">
+          <div class="category-title">
+            <i class="fas fa-music category-icon"></i>
+            Choir & Music
+          </div>
+          <span class="image-count">6 Photos</span>
+        </div>
+        <div class="gallery-grid" id="choir-gallery">
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?choir1" alt="Choir performance">
+          </div>
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?choir2" alt="Choir performance">
+          </div>
+          <!-- Add additional images as needed -->
+        </div>
+      </div>
+
+      <!-- Academics Category -->
+      <div class="category-section">
+        <div class="category-header" onclick="toggleCategory('academics')">
+          <div class="category-title">
+            <i class="fas fa-book-open category-icon"></i>
+            Academic Activities
+          </div>
+          <span class="image-count">10 Photos</span>
+        </div>
+        <div class="gallery-grid" id="academics-gallery">
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?class1" alt="Classroom activity">
+          </div>
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?class2" alt="Classroom activity">
+          </div>
+          <!-- Add additional images as needed -->
+        </div>
+      </div>
+
+      <!-- Events Category -->
+      <div class="category-section">
+        <div class="category-header" onclick="toggleCategory('events')">
+          <div class="category-title">
+            <i class="fas fa-calendar-alt category-icon"></i>
+            School Events
+          </div>
+          <span class="image-count">12 Photos</span>
+        </div>
+        <div class="gallery-grid" id="events-gallery">
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?event1" alt="School event">
+          </div>
+          <div class="gallery-item">
+            <img src="https://source.unsplash.com/random/800x800?event2" alt="School event">
+          </div>
+          <!-- Add additional images as needed -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Section: Campus Virtual Tour -->
+    <section class="campus-tour">
+      <h2 class="section-title">
+        <i class="fas fa-video" style="color: var(--gold); margin-right: 8px;"></i>
+        Campus Virtual Tour
+      </h2>
+      <p>Take a virtual tour of our campus and explore our state-of-the-art facilities.</p>
+      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" allowfullscreen></iframe>
+    </section>
+  </div>
+
+  <script>
+    function toggleCategory(categoryId) {
+      const gallery = document.getElementById(`${categoryId}-gallery`);
+      gallery.classList.toggle('active');
+      const icon = gallery.previousElementSibling.querySelector('.category-icon');
+      icon.classList.toggle('fa-rotate-90');
+    }
+    // Placeholder for gallery item click functionality
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function () {
+        alert('Image preview would open here');
+      });
+    });
+  </script>
+</body>
+</html>
