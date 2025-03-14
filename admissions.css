@@ -1,0 +1,35 @@
+
+:root {
+    --maroon: #8B0000;
+    --gold: #F2A900;
+    --white: #FFFFFF;
+    --beige: #F5F5DC;
+    --dark-text: #333333;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  body {
+    line-height: 1.6;
+    color: var(--dark-text);
+  }
+
+  .admissions-header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+    background: linear-gradient(rgba(139, 0, 0, 0.9), rgba(139, 0, 0, 0.9)),
+                url('admissions-bg.jpg');
+    background-size: cover;
+    color: var(--white);
+  }
+
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
