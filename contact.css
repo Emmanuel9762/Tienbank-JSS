@@ -50,6 +50,15 @@ body {
     gap: 1rem;
 }
 
+.contact-info .contact-item {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--maroon);
+}
+
+
 .contact-icon {
     font-size: 1.5rem;
     color: var(--maroon);
