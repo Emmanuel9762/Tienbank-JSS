@@ -188,7 +188,7 @@
 
 .hero-image {
   flex: 1;
-  background: url('school-image.jpg') center/cover;
+  background: url('assets/hero.jpg') center/cover;
   min-height: 400px;
 }
 
