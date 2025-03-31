@@ -70,5 +70,38 @@
         </div>
         <div id="calendar"></div>
     </div>
+<!-- FullCalendar Scripts -->
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/main.min.js'></script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            },
+            events: {
+                googleCalendarApiKey: 'YOUR_API_KEY',
+                googleCalendarId: 'YOUR_CALENDAR_ID@group.calendar.google.com',
+            },
+            eventClick: function(info) {
+                info.jsEvent.preventDefault();
+                if (info.event.url) {
+                    window.open(info.event.url);
+                }
+            },
+            eventDidMount: function(info) {
+                info.el.style.fontWeight = '500';
+            },
+        });
+        calendar.render();
+    });
+</script>
+</body>
+</html>
     
