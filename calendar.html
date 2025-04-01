@@ -14,6 +14,10 @@
             --dark-text: #333333;
         }
 
+        body {
+            background: var(--beige);
+        }
+
         .calendar-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -32,10 +36,12 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
+        /* Custom Calendar Styling */
         .fc-header-toolbar {
             padding: 1rem;
             background: var(--beige);
             border-radius: 8px 8px 0 0;
+            margin-bottom: 0 !important;
         }
 
         .fc-button-primary {
@@ -52,10 +58,33 @@
             border-color: var(--gold) !important;
             color: var(--maroon) !important;
             cursor: pointer;
+            margin: 2px !important;
         }
 
-        .fc-daygrid-event-dot {
-            border-color: var(--maroon) !important;
+        .fc-daygrid-day-frame {
+            min-height: 100px !important;
+            padding: 5px !important;
+        }
+
+        .fc-daygrid-day-number {
+            color: var(--maroon) !important;
+            font-weight: 500;
+            font-size: 1.1em;
+        }
+
+        .fc-col-header-cell {
+            background: var(--beige) !important;
+            color: var(--maroon) !important;
+            padding: 10px 0 !important;
+        }
+
+        .fc-day-today {
+            background-color: rgba(242, 169, 0, 0.1) !important;
+        }
+
+        .fc-toolbar-title {
+            color: var(--maroon) !important;
+            font-weight: 600 !important;
         }
     </style>
     <!-- FullCalendar Dependencies -->
@@ -70,39 +99,52 @@
         </div>
         <div id="calendar"></div>
     </div>
-<!-- FullCalendar Scripts -->
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/main.min.js'></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const calendarEl = document.getElementById('calendar');
-        const calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,dayGridWeek,dayGridDay'
-            },
-            events: {
-                googleCalendarApiKey: key=API_KEY,
-                googleCalendarId: 'a544f810075982ec1b6d2546ec72f642227a80afc99ff0d5d68235863ff11c88@group.calendar.google.com
-',
-            },
-            eventClick: function(info) {
-                info.jsEvent.preventDefault();
-                if (info.event.url) {
-                    window.open(info.event.url);
+    <!-- FullCalendar Scripts -->
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.8/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.8/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/locales-all.min.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'en',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                },
+                events: {
+                    googleCalendarApiKey: 'AIzaSyB1HJMmJ3qH6QjZqX6X9X7Z6X5X4X3X2X1', // Replace with your API key
+                    googleCalendarId: 'your-calendar-id@group.calendar.google.com' // Replace with your calendar ID
+                },
+                eventClick: function(info) {
+                    info.jsEvent.preventDefault();
+                    if (info.event.url) {
+                        window.open(info.event.url);
+                    }
+                },
+                eventDidMount: function(info) {
+                    info.el.style.fontWeight = '500';
+                    info.el.style.borderRadius = '4px';
+                    info.el.style.padding = '2px 5px';
+                },
+                datesSet: function(info) {
+                    console.log('Calendar view updated:', info.view.title);
+                },
+                loading: function(isLoading) {
+                    if (isLoading) {
+                        console.log('Loading calendar events...');
+                    }
                 }
-            },
-            eventDidMount: function(info) {
-                info.el.style.fontWeight = '500';
-            },
+            });
+            calendar.render();
         });
-        calendar.render();
-    });
-</script>
+    </script>
 </body>
 </html>
     
